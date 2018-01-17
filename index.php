@@ -3,121 +3,64 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetPageProperty("title", "Демонстрационная версия продукта «1С-Битрикс: Управление сайтом»");
 $APPLICATION->SetPageProperty("NOT_SHOW_NAV_CHAIN", "Y");
 $APPLICATION->SetTitle("Каталог книг");
-?><?$APPLICATION->IncludeComponent(
-	"bitrix:catalog.section.list",
-	"",
-	Array(
-		"CACHE_TIME" => "3600",
-		"CACHE_TYPE" => "A",
-		"COUNT_ELEMENTS" => "Y",
-		"DISPLAY_PANEL" => "N",
-		"IBLOCK_ID" => "6",
-		"IBLOCK_TYPE" => "books",
-		"SECTION_ID" => $_REQUEST["SECTION_ID"],
-		"SECTION_URL" => "/e-store/books/#SECTION_ID#/"
-	)
-);?>
-<hr>
+?>
 
-<?$APPLICATION->IncludeComponent(
-	"bitrix:catalog.top",
-	"",
-	Array(
-		"ACTION_VARIABLE" => "action",
-		"BASKET_URL" => "/personal/cart/",
-		"CACHE_TIME" => "3600",
-		"CACHE_TYPE" => "A",
-		"DETAIL_URL" => "/e-store/books/#SECTION_ID#/#ELEMENT_ID#/",
-		"DISPLAY_COMPARE" => "N",
-		"ELEMENT_COUNT" => "3",
-		"ELEMENT_SORT_FIELD" => "sort",
-		"ELEMENT_SORT_ORDER" => "asc",
-		"IBLOCK_ID" => "6",
-		"IBLOCK_TYPE" => "books",
-		"LINE_ELEMENT_COUNT" => "1",
-		"PRICE_CODE" => Array("RETAIL"),
-		"PRODUCT_ID_VARIABLE" => "id",
-		"PROPERTY_CODE" => Array(),
-		"SECTION_ID_VARIABLE" => "SECTION_ID",
-		"SECTION_URL" => "/e-store/books/#SECTION_ID#/",
-		"SHOW_PRICE_COUNT" => "1",
-		"USE_PRICE_COUNT" => "N"
-	)
-);?>
 
-<h2>Видео-новости хо хо</h2>
-
-<?$APPLICATION->IncludeComponent(
-	"bitrix:player",
-	"",
-	Array(
-		"ADVANCED_MODE_SETTINGS" => "N",
-		"AUTOSTART" => "N",
-		"BUFFER_LENGTH" => "10",
-		"CONTROLBAR" => "bottom",
-		"CONTROLS_BGCOLOR" => "FFFFFF",
-		"CONTROLS_COLOR" => "000000",
-		"CONTROLS_OVER_COLOR" => "000000",
-		"DISPLAY_CLICK" => "play",
-		"DOWNLOAD_LINK_TARGET" => "_self",
-		"FULLSCREEN" => "Y",
-		"HEIGHT" => "324",
-		"HIDE_MENU" => "N",
-		"HIGH_QUALITY" => "Y",
-		"MUTE" => "N",
-		"PATH" => "/upload/intro.flv",
-		"PLAYER_TYPE" => "auto",
-		"REPEAT" => "N",
-		"SCREEN_COLOR" => "000000",
-		"SHOW_CONTROLS" => "Y",
-		"SHOW_DIGITS" => "Y",
-		"SHOW_STOP" => "N",
-		"SKIN" => "bitrix.swf",
-		"SKIN_PATH" => "/bitrix/components/bitrix/player/mediaplayer/skins",
-		"USE_PLAYLIST" => "N",
-		"VOLUME" => "90",
-		"WIDTH" => "400",
-		"WMODE" => "transparent",
-		"WMODE_WMV" => "window"
-	)
+<?$APPLICATION->IncludeComponent("bitrix:news.list","",Array(
+        "DISPLAY_DATE" => "Y",
+        "DISPLAY_NAME" => "Y",
+        "DISPLAY_PICTURE" => "Y",
+        "DISPLAY_PREVIEW_TEXT" => "Y",
+        "AJAX_MODE" => "Y",
+        "IBLOCK_TYPE" => "news",
+        "IBLOCK_ID" => "3",
+        "NEWS_COUNT" => "20",
+        "SORT_BY1" => "ACTIVE_FROM",
+        "SORT_ORDER1" => "DESC",
+        "SORT_BY2" => "SORT",
+        "SORT_ORDER2" => "ASC",
+        "FILTER_NAME" => "",
+        "FIELD_CODE" => Array("ID"),
+        "PROPERTY_CODE" => Array("DESCRIPTION"),
+        "CHECK_DATES" => "Y",
+        "DETAIL_URL" => "",
+        "PREVIEW_TRUNCATE_LEN" => "",
+        "ACTIVE_DATE_FORMAT" => "d.m.Y",
+        "SET_TITLE" => "Y",
+        "SET_BROWSER_TITLE" => "Y",
+        "SET_META_KEYWORDS" => "Y",
+        "SET_META_DESCRIPTION" => "Y",
+        "SET_LAST_MODIFIED" => "Y",
+        "INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
+        "ADD_SECTIONS_CHAIN" => "Y",
+        "HIDE_LINK_WHEN_NO_DETAIL" => "Y",
+        "PARENT_SECTION" => "",
+        "PARENT_SECTION_CODE" => "",
+        "INCLUDE_SUBSECTIONS" => "Y",
+        "CACHE_TYPE" => "A",
+        "CACHE_TIME" => "3600",
+        "CACHE_FILTER" => "Y",
+        "CACHE_GROUPS" => "Y",
+        "DISPLAY_TOP_PAGER" => "Y",
+        "DISPLAY_BOTTOM_PAGER" => "Y",
+        "PAGER_TITLE" => "Новости",
+        "PAGER_SHOW_ALWAYS" => "Y",
+        "PAGER_TEMPLATE" => "",
+        "PAGER_DESC_NUMBERING" => "Y",
+        "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+        "PAGER_SHOW_ALL" => "Y",
+        "PAGER_BASE_LINK_ENABLE" => "Y",
+        "SET_STATUS_404" => "Y",
+        "SHOW_404" => "Y",
+        "MESSAGE_404" => "",
+        "PAGER_BASE_LINK" => "",
+        "PAGER_PARAMS_NAME" => "arrPager",
+        "AJAX_OPTION_JUMP" => "N",
+        "AJAX_OPTION_STYLE" => "Y",
+        "AJAX_OPTION_HISTORY" => "N",
+        "AJAX_OPTION_ADDITIONAL" => ""
+    )
 );?>
 
-<!-- --><h2>Новые фотографии</h2>
-<?$APPLICATION->IncludeComponent(
-	"bitrix:photogallery.detail.list",
-	".default",
-	Array(
-		"ADDITIONAL_SIGHTS" => array(),
-		"BEHAVIOUR" => "USER",
-		"CACHE_TIME" => "3600",
-		"CACHE_TYPE" => "A",
-		"COMMENTS_TYPE" => "none",
-		"DATE_TIME_FORMAT" => "d.m.Y",
-		"DETAIL_SLIDE_SHOW_URL" => "/content/gallery/#USER_ALIAS#/#SECTION_ID#/#ELEMENT_ID#/slide_show/",
-		"DETAIL_URL" => "/content/gallery/#USER_ALIAS#/#SECTION_ID#/#ELEMENT_ID#/",
-		"ELEMENT_LAST_TYPE" => "none",
-		"ELEMENT_SORT_FIELD" => "sort",
-		"ELEMENT_SORT_ORDER" => "asc",
-		"GROUP_PERMISSIONS" => array(0=>"1",1=>"",),
-		"IBLOCK_ID" => "10",
-		"IBLOCK_TYPE" => "photos",
-		"MAX_VOTE" => "5",
-		"PAGE_ELEMENTS" => "6",
-		"PAGE_NAVIGATION_TEMPLATE" => "",
-		"PICTURES_SIGHT" => "",
-		"SEARCH_URL" => "/content/gallery/search/",
-		"SECTION_ID" => $_REQUEST["SECTION_ID"],
-		"SET_TITLE" => "N",
-		"SHOW_COMMENTS" => "N",
-		"SHOW_CONTROLS" => "N",
-		"SHOW_PAGE_NAVIGATION" => "none",
-		"SHOW_RATING" => "N",
-		"SHOW_SHOWS" => "N",
-		"SHOW_TAGS" => "N",
-		"THUMBNAIL_SIZE" => "90",
-		"USER_ALIAS" => $_REQUEST["USER_ALIAS"],
-		"USE_DESC_PAGE" => "N",
-		"USE_PERMISSIONS" => "N",
-		"VOTE_NAMES" => array(0=>"1",1=>"2",2=>"3",3=>"4",4=>"5",5=>"",)
-	)
-);?><!-- --><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+
+<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
