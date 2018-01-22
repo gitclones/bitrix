@@ -1,3 +1,10 @@
+<?php
+
+//$this->addExternalCss();
+//$this->addExternalJss();
+
+?>
+
 <? if(count($arResult['ITEMS']) > 0): ?>
     <div>
         <? foreach ($arResult['ITEMS'] as $aItem): ?>

@@ -1,6 +1,10 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
+// только один раз в Хедере getInstance можно делать
+$oAsset = \Bitrix\Main\Page\Asset::getInstance();
 
+$oAsset->addCss(SITE_TEMPLATE_PATH . 'css.css');
+//$oAsset->addJs('');
 
 
 ?>
